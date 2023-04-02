@@ -13,9 +13,12 @@ jobs:
   auto_commit:
     runs-on: ubuntu-latest
     steps:
-      - id: roll-dice
+      - name: roll dice
         run: echo "PROCEED=$((RANDOM%2))" > $GITHUB_ENV
         shell: bash
+        
+      - name: hasil
+        run: echo $GITHUB_ENV
 
       - if: env.PROCEED == '0'
         name: Cancelling
