@@ -13,7 +13,7 @@ jobs:
   auto_commit:
     runs-on: ubuntu-latest
     steps:
-      - id: Roll dice
+      - id: roll-dice
         run: echo "PROCEED=$((RANDOM%2))" >> $GITHUB_ENV
         shell: bash
 
