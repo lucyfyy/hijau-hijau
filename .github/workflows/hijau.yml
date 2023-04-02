@@ -1,0 +1,41 @@
+name: Auto commit
+
+on:
+
+  push:
+    branches:
+      - main
+      
+  schedule:
+  - cron: "* 1 * * *"
+
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - id: Roll dice
+        run: echo "PROCEED=$((RANDOM%2))" >> $GITHUB_ENV
+        shell: bash
+
+      - if: env.PROCEED == '0'
+        name: Cancelling
+        uses: andymckay/cancel-action@0.2
+
+      - if: env.PROCEED == '0'
+        name: Waiting for cancellation
+        run: sleep 60
+        
+      - uses: actions/checkout@master
+        with:
+         persist-credentials: false
+         fetch-depth: 0
+
+      - name: Modify last update
+        run: |
+          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
+          echo $d > timestamp
+          
+      - name: Commit & Push changes
+        uses: actions-js/push@master
+        with:
+          github_token: ${{ secrets.TOKEN }}
