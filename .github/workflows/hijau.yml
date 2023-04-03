@@ -62,8 +62,9 @@ jobs:
           EMAIL: ${{ secrets.EMAIL }}
           USERNAME: ${{ secrets.USERNAME }}
           
-      - name: Commit & Push changes
-        uses: actions-js/push@master
+      - name: Push Back
+        uses: ad-m/github-push-action@v0.5.0
         with:
-          directory: "."
+          force: true
+          directory: '.'
           github_token: ${{ secrets.TOKEN }}
