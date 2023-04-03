@@ -35,8 +35,9 @@ jobs:
 
       - name: Modify last update
         run: |
-          d=`date '+%Y-%m-%dT%H:%M:%SZ'`
-          echo $d > timestamp
+          cat timestamp
+          echo $date > timestamp
+          cat timestamp
           
       - name: Commit changes
         run: |
