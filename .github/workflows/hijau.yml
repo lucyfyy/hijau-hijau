@@ -64,7 +64,7 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           
       - name: GitHub Push
-        uses: EndBug/add-and-commit@v9
+        uses: ad-m/github-push-action@v0.6.0
         with:
-          author_name: ${{ secrets.USERNAME }}
-          author_email: ${{ secrets.EMAIL }}
+          directory: "."
+          github_token: ${{ secrets.GITHUB_TOKEN }}
