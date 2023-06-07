@@ -13,20 +13,20 @@ jobs:
   auto_commit:
     runs-on: ubuntu-latest
     steps:
-#       - name: roll dice
-#         run: echo "PROCEED=$((RANDOM%2))" > $GITHUB_ENV
-#         shell: bash
+      - name: roll dice
+        run: echo "PROCEED=$((RANDOM%2))" > $GITHUB_ENV
+        shell: bash
         
-#       - name: hasil
-#         run: echo $GITHUB_ENV
+      - name: hasil
+        run: echo $GITHUB_ENV
 
-#       - if: env.PROCEED == '0'
-#         name: Cancelling
-#         uses: andymckay/cancel-action@0.2
+      - if: env.PROCEED == '0'
+        name: Cancelling
+        uses: andymckay/cancel-action@0.2
 
-#       - if: env.PROCEED == '0'
-#         name: Waiting for cancellation
-#         run: sleep 60
+      - if: env.PROCEED == '0'
+        name: Waiting for cancellation
+        run: sleep 60
         
       - uses: actions/checkout@master
         with:
