@@ -6,8 +6,8 @@ on:
 #     branches:
 #       - main
       
-  schedule:
-  - cron: "0 7,9,11,17,20 * * *"
+  # schedule:
+  # - cron: "0 7,9,11,17,20 * * *"
 
 jobs:
   auto_commit:
